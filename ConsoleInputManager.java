@@ -51,6 +51,7 @@ public class ConsoleInputManager{
          * readme
          * opis wszystkich metod
          * lepszy format ConsoleInpoyM
+         * wieksza kontrola inputu
          * co się stanie gdy nie mamy pieniedzy w kasie a jeeszcze reszty w arraylist?
          */
 
