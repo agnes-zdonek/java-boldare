@@ -29,4 +29,13 @@ public class Coin {
         return +value+denomination + ": "+ quantity+ "szt.\n";
     }
 
+    public int coinsAviable(int suma){
+
+        int iloscDzielenie = suma/value;
+        if(quantity >= iloscDzielenie){
+            return iloscDzielenie;
+        }
+        return quantity;
+    }
+
 }
