@@ -31,16 +31,28 @@ public class ConsoleInputManager{
             if (input.equalsIgnoreCase("q")) {
                 break;
             }
-            double reszta = Double.parseDouble(input);
-            reszty.add(reszta);
-            sumaReszt += reszta;
+
+            if (input.matches("\\d+\\.\\d{2}")) {
+                double reszta = Double.parseDouble(input);
+                reszty.add(reszta);
+                sumaReszt += reszta;
+            } else {
+                System.out.println("Kwota powinna być liczbą i mieć dwa miejsca po przecinku - format X.XX\n");
+            }
+            
         }
 
-        
         for(Double d : reszty){
-            System.out.println(d);
+            piggyBank.coinMachine(d);
         }
 
+        /*
+         * to do:
+         * readme
+         * opis wszystkich metod
+         * lepszy format ConsoleInpoyM
+         * co się stanie gdy nie mamy pieniedzy w kasie a jeeszcze reszty w arraylist?
+         */
 
 
         
