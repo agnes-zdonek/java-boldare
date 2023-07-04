@@ -1,20 +1,33 @@
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+/**
+ * Reprezentuje kasę drobnych
+ */
 public class PiggyBank {
+    /**
+     * @param instance jedyna instancja klasy PiggyBank
+     * @param zlotowki lista ze złotówkami
+     * @param grosze lista z groszami
+     */
     private static PiggyBank instance;
     private List<Coin> zlotowki;
     private List<Coin> grosze;
 
+    /**
+     * Prywatny konstruktor dla klasy PiggyBank
+     */
     private PiggyBank(){
         zlotowki = new ArrayList<>();
         grosze = new ArrayList<>();
     }
 
+    /**
+     * Metoda, która gwarantuje istnienie tylko jedenej istancji klasy PiggyBank
+     * @return instancja klasy PiggyBank
+     */
     public static PiggyBank getInstance() {
         if (instance == null) {
             synchronized (PiggyBank.class) {
@@ -26,6 +39,10 @@ public class PiggyBank {
         return instance;
     }
 
+    /**
+     * Getter dla całej zawartości klasy PiggyBank
+     * @return jedna lista, na którą składają się obie listy z pieniędzmi 
+     */
     public List<Coin> getPiggyBank() {
         List<Coin> temp = new ArrayList<>();
         temp.addAll(zlotowki);
@@ -33,14 +50,28 @@ public class PiggyBank {
         return temp;
     }
 
+    /**
+     * Getter dla listy ze złotówkami
+     * @return
+     */
     public List<Coin> getZlotowki(){
         return zlotowki;
     }
 
+    /**
+     * Getter dla listy z groszami
+     * @return
+     */
     public List<Coin> getGrosze(){
         return grosze;
     }
 
+    /**
+     * Metoda pozwalająca dodać monety o wybranym nominale do kasy z drobnymi
+     * @param value wartość monety 
+     * @param denomination zł dla złotówek lub gr dla groszy
+     * @param quantity ilość monet
+     */
     public void addCoins(int value, String denomination, int quantity){
         if(denomination=="zl"){
         zlotowki.add(new Coin(value, denomination, quantity));
@@ -49,6 +80,12 @@ public class PiggyBank {
         }
     }
 
+    /**
+     * Metoda zabierająca wybraną ilość danych monet z kasy z drobnymi
+     * @param value wartość monety 
+     * @param denomination zł dla złotówek lub gr dla groszy
+     * @param quantity ilość monet
+     */
     public void takeCoins(int value, String denomination, int quantity){
         List<Coin> coinList;
         if(denomination=="zl") {
@@ -60,15 +97,20 @@ public class PiggyBank {
             if(coin.getValue() == value && coin.getDenomination() == denomination){
                 if(coin.getQuantity() >= quantity){
                     coin.setQuantity(quantity);
+                    return;
                 }else{
-                    System.out.println("not enough coins\n");
+                    System.out.println("za mało monet\n");
+                    return;
                 }
-                return;
             }
         }
-        System.out.println("coins of that denomination not found, nothing was taken\n");
+        System.out.println("Monety o tym nominale nie zostały znalezione, nic nie zostało zabrane\n");
     }
 
+    /**
+     * Redefinicja metody toString, zwraca string z zawartością kasy
+     */
+    @Override
     public String toString(){
         String toPrint = "";
         for (Coin coin : this.getPiggyBank()){
@@ -77,6 +119,12 @@ public class PiggyBank {
         return toPrint;
     }
 
+    /**
+     * Dzieli liczbę double na liczbę przed przecinkiem i liczbę po przecinku.
+     * Zwraca tabelkę z obiema liczbami, liczba przed przecinkiem jest pierwsza 
+     * @param num liczba o formacie X.YZ
+     * @return tabelka [X, YZ]
+     */
     public static int[] doubleSplit(double num) {
         BigDecimal number = BigDecimal.valueOf(num);
         BigDecimal integerPart = number.setScale(0, RoundingMode.DOWN);
@@ -89,7 +137,10 @@ public class PiggyBank {
         return values;
     }
 
-     
+    /**
+     * Metoda wydaje resztę dla danej kwoty i zabiera użyte monety z kasy z drobnymi
+     * @param suma kwota, dla której wydajemy resztę
+     */
     public void coinMachine(double suma){
 
         String printSumsOfMoney = "";
@@ -100,7 +151,7 @@ public class PiggyBank {
         if(sumaNow >= 1 ){
             for(Coin coin : zlotowki){
                 if(sumaNow >= coin.getValue()){
-                    int ileMonet = coin.coinsAviable(sumaNow);
+                    int ileMonet = coin.coinsAvailable(sumaNow);
                     if(ileMonet != 0){
                         printSumsOfMoney+="Wydaj "+ ileMonet + " monet "+ coin.getValue()+" zł\n";
                         this.takeCoins(coin.getValue(), "zl", ileMonet);
@@ -115,7 +166,7 @@ public class PiggyBank {
         if(sumaNow > 0){
             for(Coin coin : grosze){
                 if(sumaNow >= coin.getValue()){
-                    int ileMonet = coin.coinsAviable(sumaNow);
+                    int ileMonet = coin.coinsAvailable(sumaNow);
                     if(ileMonet != 0){
                         printSumsOfMoney+="Wydaj "+ ileMonet + " monet "+ coin.getValue()+" gr\n";
                         this.takeCoins(coin.getValue(), "gr", ileMonet);
