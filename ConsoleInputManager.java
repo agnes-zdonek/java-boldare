@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleInputManager{
@@ -16,7 +18,29 @@ public class ConsoleInputManager{
         piggyBank.addCoins(1, "gr", 10000);
 
         System.out.println("Witaj w programie do wydawania reszt! Oto stan kasy: \n" + piggyBank.toString());
-        //Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        List<Double> reszty = new ArrayList<>();
+        //kiedy suma reszt > kasa daj komunikat!!
+        double sumaReszt = 0.0;
+        System.out.println("Podaj reszty do wydania (po każdej reszcie wciśnij enter, wpisz 'q' aby zakończyć):");
+        
+
+        //if not a double, wyswietl ze sproboj ponownie
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("q")) {
+                break;
+            }
+            double reszta = Double.parseDouble(input);
+            reszty.add(reszta);
+            sumaReszt += reszta;
+        }
+
+        
+        for(Double d : reszty){
+            System.out.println(d);
+        }
+
 
 
         
