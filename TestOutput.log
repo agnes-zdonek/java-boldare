@@ -1,0 +1,97 @@
+Utworzenie 100 monet o wartości 5zł.
+5zl: 100szt.
+Zabranie jednej monety
+5zl: 99szt.
+Próba zabrania 100 monet o wartości 5zł.
+Nie możesz zabrać monet ponad ich stan; obecny stan monety 5zl: 99szt.
+5zl: 99szt.
+
+Jaka maksymalna ilość monet 5zł (obecny stan 99 monet) może być wykorzystana do wydania poszczególnych reszt?
+14zł: 2 monety
+100zł: 20 monet
+690zł: 99 monet
+0zł: 0 monet
+
+Utworzenie kasy z drobnymi i dodanie do niej pieniędzy.
+Nieposortowana kasa z drobnymi:
+2zl: 3szt.
+1zl: 5szt.
+5zl: 1szt.
+20gr: 20szt.
+10gr: 200szt.
+5gr: 100szt.
+2gr: 100szt.
+50gr: 10szt.
+1gr: 11000szt.
+
+Posortowana kasa z drobnymi:
+5zl: 1szt.
+2zl: 3szt.
+1zl: 5szt.
+50gr: 10szt.
+20gr: 20szt.
+10gr: 200szt.
+5gr: 100szt.
+2gr: 100szt.
+1gr: 11000szt.
+
+Zabranie 1000 monet o wartości 1gr, stan części kasy z groszami:
+50gr 10 szt.
+20gr 20 szt.
+10gr 200 szt.
+5gr 100 szt.
+2gr 100 szt.
+1gr 10000 szt.
+
+Próba zabrania 10001 monet 1gr.
+Za mało monet o wartości 1gr, monety nie zostały zabrane.
+Próba zabrania 10 nieistniejących monet o wartości 7 zł
+Monety o nominale 7zl nie zostały znalezione, nic nie zostało zabrane.
+
+Podzielenie liczby 11.79 na 11 i 79
+11 79
+Podzielenie liczby 1805 na 1805 i 0
+1805 0
+Próba podzielenia liczby 148.999
+Wpisz liczbę z maksymalnie dwoma miejscami po przecinku.
+Próba podzielenia liczby 777.888111
+Wpisz liczbę z maksymalnie dwoma miejscami po przecinku.
+
+------------------------------
+
+Testy z przykładu z pliku z zadaniem rekrutacyjnym:
+Stan kasy z drobnymi:
+5zl: 1szt.
+2zl: 3szt.
+1zl: 5szt.
+50gr: 10szt.
+20gr: 20szt.
+10gr: 200szt.
+5gr: 100szt.
+2gr: 100szt.
+1gr: 10000szt.
+
+Dla reszty 1.30zł
+
+Wydaj 1 monet 1 zł
+Wydaj 1 monet 20 gr
+Wydaj 1 monet 10 gr
+
+Dla reszty 11.70zł
+
+Wydaj 1 monet 5 zł
+Wydaj 3 monet 2 zł
+Wydaj 1 monet 50 gr
+Wydaj 1 monet 20 gr
+
+Dla reszty 6.70zł
+
+Wydaj 4 monet 1 zł
+Wydaj 5 monet 50 gr
+Wydaj 1 monet 20 gr
+
+Dla reszty 4.30zł
+
+Wydaj 4 monet 50 gr
+Wydaj 11 monet 20 gr
+Wydaj 1 monet 10 gr

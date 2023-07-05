@@ -1,5 +1,5 @@
 /**
- * Reprezentuje monetę o wybranym nominale i jej ilosć
+ * Reprezentuje monetę o wybranym nominale i jej ilosć 
  */
 public class Coin {
     /**
