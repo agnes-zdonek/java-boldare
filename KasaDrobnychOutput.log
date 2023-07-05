@@ -1,60 +1,43 @@
+Witaj w programie do wydawania reszt! Oto stan kasy: 
+5zl: 1szt.
+2zl: 3szt.
+1zl: 5szt.
+50gr: 10szt.
+20gr: 20szt.
+10gr: 200szt.
+5gr: 100szt.
+2gr: 100szt.
+1gr: 10000szt.
+
 Podaj reszty do wydania (po każdej reszcie wciśnij enter, wpisz 'q' aby zakończyć):
-1.30
-11.70
-aaaaaaaaaaa
-Kwota powinna być liczbą i mieć dwa miejsca po kropce - format X.YX
-aa[P"Dcko'
-Kwota powinna być liczbą i mieć dwa miejsca po kropce - format X.YX
-6.70
-qqqqqqqqqqqq
-Kwota powinna być liczbą i mieć dwa miejsca po kropce - format X.YX
-4.30
-100.89
-100.445
-Kwota powinna być liczbą i mieć dwa miejsca po kropce - format X.YX
-100.45
-#####
-Kwota powinna być liczbą i mieć dwa miejsca po kropce - format X.YX
-800.00
+10.10
+100.00
+200.00
+20000.00
 q
-Dla reszty 1.30zł
-
-Wydaj 1 monet 1 zł
-Wydaj 1 monet 20 gr
-Wydaj 1 monet 10 gr
-
-Dla reszty 11.70zł
+Dla reszty 10.10zł
 
 Wydaj 1 monet 5 zł
-Wydaj 3 monet 2 zł
-Wydaj 1 monet 50 gr
-Wydaj 1 monet 20 gr
-
-Dla reszty 6.70zł
-
-Wydaj 4 monet 1 zł
-Wydaj 5 monet 50 gr
-Wydaj 1 monet 20 gr
-
-Dla reszty 4.30zł
-
-Wydaj 4 monet 50 gr
-Wydaj 11 monet 20 gr
+Wydaj 2 monet 2 zł
+Wydaj 1 monet 1 zł
 Wydaj 1 monet 10 gr
 
-Dla reszty 100.89zł
+Dla reszty 100.0zł
 
-Wydaj 6 monet 20 gr
-Wydaj 198 monet 10 gr
+Wydaj 1 monet 2 zł
+Wydaj 4 monet 1 zł
+Wydaj 10 monet 50 gr
+Wydaj 20 monet 20 gr
+Wydaj 199 monet 10 gr
 Wydaj 100 monet 5 gr
 Wydaj 100 monet 2 gr
-Wydaj 7289 monet 1 gr
+Wydaj 5810 monet 1 gr
 
-Dla reszty 100.45zł
+Dla reszty 200.0zł
 
 Reszta będzie wydana częściowo, nie ma wystarczająco pieniędzy w kasie
-Wydaj 2711 monet 1 gr
+Wydaj 4190 monet 1 gr
 
-Dla reszty 800.0zł
+Dla reszty 20000.0zł
 
 Brak pieniędzy w kasie by wydać tą reszte
