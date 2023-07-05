@@ -222,7 +222,7 @@ public class PiggyBank {
         if(printSumsOfMoney!="" && sumaNow > 0){
             System.out.println("Reszta będzie wydana częściowo, nie ma wystarczająco pieniędzy w kasie");
         } else if (printSumsOfMoney==""){
-            System.out.println("Brak pieniędzy w kasie by wydać tą reszte");
+            System.out.println("Brak pieniędzy w kasie by wydać tą reszte\n");
             return;
         }
         System.out.print(printSumsOfMoney);
