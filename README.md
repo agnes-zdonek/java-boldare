@@ -21,7 +21,7 @@ style D stroke:#f8d3dc,stroke-width:7px
 
 ## Instalacja i uruchamianie
 Pobierz i rozpakuj repozytorium, wejdź do folderu gdzie znajduje się sub-folder src.
-Następnie:
+Następnie w terminalu wpisz:
 `cd src`               
 `javac  -d bin  *.java`
 
