@@ -52,6 +52,10 @@ public class Coin {
      * @param minusThatQuantity odejmij taką ilość monet 
      */
     public void setQuantity(int minusThatQuantity){
+        if((this.quantity-minusThatQuantity) < 0){
+            System.out.print("Nie możesz zabrać monet ponad ich stan; obecny stan monety " + this.getValue() + this.getDenomination()+ ": "+ this.getQuantity() + "szt.\n");
+            return;
+        }
         this.quantity = this.quantity-minusThatQuantity;
     }
 

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Collections;
@@ -76,7 +77,7 @@ public class PiggyBank {
      */
     public void addCoins(int value, String denomination, int quantity){
         if(denomination=="zl"){
-        zlotowki.add(new Coin(value, denomination, quantity));
+            zlotowki.add(new Coin(value, denomination, quantity));
         } else {
             grosze.add(new Coin(value, denomination, quantity));
         }
@@ -101,12 +102,12 @@ public class PiggyBank {
                     coin.setQuantity(quantity);
                     return;
                 }else{
-                    System.out.println("za mało monet\n");
+                    System.out.println("Za mało monet o wartości " +coin.getValue()+ coin.getDenomination()+", monety nie zostały zabrane.");
                     return;
                 }
             }
         }
-        System.out.println("Monety o tym nominale nie zostały znalezione, nic nie zostało zabrane\n");
+        System.out.println("Monety o nominale "+value+denomination+" nie zostały znalezione, nic nie zostało zabrane.\n");
     }
 
     /**
@@ -152,18 +153,28 @@ public class PiggyBank {
         return toPrint;
     }
 
+    public static boolean TwoDecimalPlaces(double value) {
+        String valueMatch = Double.toString(value);
+        return Pattern.matches("\\d+(\\.\\d{1,2})?", valueMatch);
+    }
+
     /**
      * Dzieli liczbę double na liczbę przed przecinkiem i liczbę po przecinku.
      * Zwraca tabelkę z obiema liczbami, liczba przed przecinkiem jest pierwsza 
      * @param num liczba o formacie X.YZ
      * @return tabelka [X, YZ]
      */
-    public static int[] doubleSplit(double num) {
+    public static int[] DoubleSplit(double num) {
+        int[] values = new int[2];
+
+        if(!TwoDecimalPlaces(num)){
+            System.out.println("Wpisz liczbę z maksymalnie dwoma miejscami po przecinku.");
+            return values;
+        }
         BigDecimal number = BigDecimal.valueOf(num);
         BigDecimal integerPart = number.setScale(0, RoundingMode.DOWN);
         BigDecimal fractionalPart = number.subtract(integerPart);
 
-        int[] values = new int[2];
         values[0] = integerPart.intValue();
         values[1] = fractionalPart.multiply(BigDecimal.valueOf(100)).intValue();
 
@@ -177,7 +188,7 @@ public class PiggyBank {
     public void coinMachine(double suma){
 
         String printSumsOfMoney = "";
-        int[] zlotowkiGrosze = doubleSplit(suma);
+        int[] zlotowkiGrosze = DoubleSplit(suma);
         System.out.println("Dla reszty "+ zlotowkiGrosze[0]+"."+zlotowkiGrosze[1]+"zł\n");
         // zlotówki loop
         int sumaNow = zlotowkiGrosze[0];
