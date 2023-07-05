@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Reprezentuje kasę drobnych
@@ -108,6 +110,37 @@ public class PiggyBank {
     }
 
     /**
+     * Metoda sortuje listy złotówek i groszy tak aby watrości były ustawione malejąco
+     */
+    public void sort(){
+        Collections.sort(zlotowki, new Comparator<Coin>() {
+            @Override
+            public int compare(Coin coin1, Coin coin2) {
+                if (coin1.getValue() > coin2.getValue()) {
+                    return -1;
+                } else if (coin1.getValue() < coin2.getValue()) {
+                    return 1; 
+                } else {
+                    return 0; 
+                }
+            }
+        });
+
+        Collections.sort(grosze, new Comparator<Coin>() {
+            @Override
+            public int compare(Coin coin1, Coin coin2) {
+                if (coin1.getValue() > coin2.getValue()) {
+                    return -1;
+                } else if (coin1.getValue() < coin2.getValue()) {
+                    return 1; 
+                } else {
+                    return 0; 
+                }
+            }
+        });
+    }
+
+    /**
      * Redefinicja metody toString, zwraca string z zawartością kasy
      */
     @Override
@@ -174,6 +207,12 @@ public class PiggyBank {
                     }
                 }
             }
+        }
+        if(printSumsOfMoney!="" && sumaNow > 0){
+            System.out.println("Reszta będzie wydana częściowo, nie ma wystarczająco pieniędzy w kasie");
+        } else if (printSumsOfMoney==""){
+            System.out.println("Brak pieniędzy w kasie by wydać tą reszte");
+            return;
         }
         System.out.print(printSumsOfMoney);
         System.out.print("\n");

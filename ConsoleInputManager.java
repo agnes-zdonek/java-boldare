@@ -52,8 +52,9 @@ public class ConsoleInputManager{
          * opis test + console + log konsola
          * lepszy format ConsoleInpoyM
          * wieksza kontrola inputu
-         * dopisac testyn dla coin i pigggy bank
-         * co się stanie gdy nie mamy pieniedzy w kasie a jeeszcze reszty w arraylist?
+         * dopisac testyn dla coin i pigggy bant
+         * \n w printach
+         * generacja doc 
          */
 
 
