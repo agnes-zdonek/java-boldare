@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Testy dla metod klas Coin, PiggyBank
+ */
+
 public class Test{
     public static void main(String[] args){
 
